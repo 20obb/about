@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0xdevil | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-text">0x</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-greeting">Hello, I'm</span>
+                <h1 class="hero-title">0xdevil</h1>
+                <div class="hero-subtitle">
+                    <span class="typing-text" id="typing-text"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="hero-description">
+                    Passionate about building robust, scalable, and efficient software solutions. 
+                    I bring ideas to life through clean code and solid architecture.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View My Work</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Get In Touch</span>
+                    </a>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://github.com/20obb" target="_blank" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://t.me/Rejectthenorm" target="_blank" class="social-link" aria-label="Telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <div class="image-blob"></div>
+                    <img src="profile.jpg" alt="0xdevil" class="profile-image">
+                </div>
+                <div class="floating-elements">
+                    <div class="floating-icon icon-1"><i class="fas fa-microchip"></i></div>
+                    <div class="floating-icon icon-2"><i class="fab fa-rust"></i></div>
+                    <div class="floating-icon icon-3"><i class="fab fa-linux"></i></div>
+                    <div class="floating-icon icon-4"><i class="fas fa-terminal"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Get To Know</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-img-wrapper">
+                        <img src="profile.jpg" alt="0xdevil" class="about-img">
+                    </div>
+                    <div class="experience-badge">
+                        <span class="exp-number">3+</span>
+                        <span class="exp-text">Years Experience</span>
+                    </div>
+                </div>
+                <div class="about-info">
+                    <div class="about-cards">
+                        <div class="about-card">
+                            <i class="fas fa-award"></i>
+                            <h3>Experience</h3>
+                            <p>3+ Years Working</p>
+                        </div>
+                        <div class="about-card">
+                            <i class="fas fa-users"></i>
+                            <h3>Clients</h3>
+                            <p>50+ Worldwide</p>
+                        </div>
+                        <div class="about-card">
+                            <i class="fas fa-folder-open"></i>
+                            <h3>Projects</h3>
+                            <p>80+ Completed</p>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <p>
+                            I'm a passionate Software Developer who loves building robust and scalable applications. 
+                            With over 3 years of experience in the industry, I specialize in creating 
+                            efficient, maintainable, and high-performance software solutions.
+                        </p>
+                        <p>
+                            My journey in web development started with a curiosity about how websites work, 
+                            which quickly evolved into a deep passion for crafting digital experiences. 
+                            I believe in writing clean, maintainable code and staying up-to-date with 
+                            the latest technologies and best practices.
+                        </p>
+                        <p>
+                            When I'm not coding, you can find me exploring new technologies, contributing 
+                            to open-source projects, or enjoying a good cup of coffee while learning new skills.
+                        </p>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Let's Talk</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">My Abilities</span>
+                <h2 class="section-title">Skills & Expertise</h2>
+            </div>
+            <div class="skills-content">
+                <div class="skills-tabs">
+                    <button class="tab-btn active" data-tab="lowlevel">
+                        <i class="fas fa-microchip"></i>
+                        <span>Low-Level</span>
+                    </button>
+                    <button class="tab-btn" data-tab="systems">
+                        <i class="fab fa-linux"></i>
+                        <span>Systems</span>
+                    </button>
+                    <button class="tab-btn" data-tab="tools">
+                        <i class="fas fa-tools"></i>
+                        <span>Tools</span>
+                    </button>
+                </div>
+                <div class="skills-panels">
+                    <!-- Low-Level Skills -->
+                    <div class="skills-panel active" id="lowlevel">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3>C</h3>
+                                <p class="skill-desc">Systems programming, memory management</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3>C++</h3>
+                                <p class="skill-desc">OOP, templates, performance optimization</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-rust"></i>
+                                </div>
+                                <h3>Rust</h3>
+                                <p class="skill-desc">Memory safety, concurrency, systems</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <h3>Assembly</h3>
+                                <p class="skill-desc">x86/x64, ARM, reverse engineering</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <h3>Python</h3>
+                                <p class="skill-desc">Scripting, automation, tooling</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-memory"></i>
+                                </div>
+                                <h3>Memory Management</h3>
+                                <p class="skill-desc">Heap, stack, pointers, allocation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Systems Skills -->
+                    <div class="skills-panel" id="systems">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-linux"></i>
+                                </div>
+                                <h3>Linux</h3>
+                                <p class="skill-desc">Kernel, syscalls, internals</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-terminal"></i>
+                                </div>
+                                <h3>Shell Scripting</h3>
+                                <p class="skill-desc">Bash, automation, pipelines</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <h3>Networking</h3>
+                                <p class="skill-desc">Sockets, protocols, TCP/IP</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-bug"></i>
+                                </div>
+                                <h3>Debugging</h3>
+                                <p class="skill-desc">GDB, Valgrind, strace</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3>Security</h3>
+                                <p class="skill-desc">Binary exploitation, RE</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-docker"></i>
+                                </div>
+                                <h3>Containers</h3>
+                                <p class="skill-desc">Docker, virtualization</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tools Skills -->
+                    <div class="skills-panel" id="tools">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-git-alt"></i>
+                                </div>
+                                <h3>Git</h3>
+                                <p class="skill-desc">Version control, branching</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-hammer"></i>
+                                </div>
+                                <h3>Make/CMake</h3>
+                                <p class="skill-desc">Build systems, compilation</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <h3>Vim/Neovim</h3>
+                                <p class="skill-desc">Terminal-based editing</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h3>IDA/Ghidra</h3>
+                                <p class="skill-desc">Disassembly, reverse engineering</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-vial"></i>
+                                </div>
+                                <h3>Testing</h3>
+                                <p class="skill-desc">Unit tests, fuzzing, CI/CD</p>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <h3>Databases</h3>
+                                <p class="skill-desc">SQL, SQLite, PostgreSQL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">My GitHub Repos</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <button class="refresh-btn" onclick="fetchGitHubRepos()" title="Refresh repos">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Python">Python</button>
+                <button class="filter-btn" data-filter="JavaScript">JavaScript</button>
+                <button class="filter-btn" data-filter="C">C</button>
+            </div>
+            <div class="projects-grid" id="github-projects">
+                <!-- Projects will be loaded dynamically from GitHub -->
+                <div class="loading-projects">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>Loading projects from GitHub...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2 class="section-title">Contact Me</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's talk about everything!</h3>
+                    <p>
+                        I'm always open to discussing new projects, creative ideas, or opportunities 
+                        to be part of your vision. Feel free to reach out through any of the channels below.
+                    </p>
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <a href="mailto:hello@0xdevil.dev">hello@0xdevil.dev</a>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <a href="tel:+1234567890">+1 (234) 567-890</a>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <span>San Francisco, CA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-socials">
+                        <a href="https://github.com/20obb" target="_blank" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://t.me/Rejectthenorm" target="_blank" class="social-link" aria-label="Telegram">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Your Name</label>
+                        <span class="input-line"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Your Email</label>
+                        <span class="input-line"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" required>
+                        <label for="subject">Subject</label>
+                        <span class="input-line"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Your Message</label>
+                        <span class="input-line"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">0x</span>
+                    <p>Building software that matters.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 0xdevil. All rights reserved.</p>
+                <p>Built with <i class="fas fa-heart"></i> & Code</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

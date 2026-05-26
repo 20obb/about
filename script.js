@@ -12,7 +12,6 @@ const navbar = document.getElementById('navbar');
 const navMenu = document.getElementById('nav-menu');
 const navToggle = document.getElementById('nav-toggle');
 const navLinks = document.querySelectorAll('.nav-link');
-const themeToggle = document.getElementById('theme-toggle');
 const backToTop = document.getElementById('back-to-top');
 const typingText = document.getElementById('typing-text');
 const tabBtns = document.querySelectorAll('.tab-btn');
@@ -183,6 +182,16 @@ function startAutoRefresh() {
     }, REFRESH_INTERVAL);
 }
 
+// ===== Web Audio API for Typing Sound =====
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+// Resume audio context on first user interaction (browser policy)
+document.body.addEventListener('click', () => {
+    if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+    }
+}, { once: true });
+
 // ===== Typing Animation =====
 class TypeWriter {
     constructor(element, words, wait = 3000) {
@@ -194,18 +203,56 @@ class TypeWriter {
         this.isDeleting = false;
         this.type();
     }
+    
+    playClickSound() {
+        // Only play if browser allows audio (user has interacted)
+        if (audioCtx.state === 'suspended') return;
+        
+        try {
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            
+            // Square wave for a mechanical "clack" sound
+            oscillator.type = 'square';
+            // Slight pitch variation for realism
+            const freq = 350 + Math.random() * 50;
+            oscillator.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            
+            // Short, quiet burst
+            gainNode.gain.setValueAtTime(0.02, audioCtx.currentTime); 
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.03);
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 0.03);
+        } catch(e) {
+            // Ignore if audio fails
+        }
+    }
 
     type() {
         const current = this.wordIndex % this.words.length;
         const fullTxt = this.words[current];
+        let hasChanged = false;
 
         if (this.isDeleting) {
             this.txt = fullTxt.substring(0, this.txt.length - 1);
+            hasChanged = true;
         } else {
-            this.txt = fullTxt.substring(0, this.txt.length + 1);
+            if (this.txt !== fullTxt) {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+                hasChanged = true;
+            }
         }
 
         this.element.innerHTML = this.txt;
+        
+        // Play sound if a character was actually added/removed
+        if (hasChanged) {
+            this.playClickSound();
+        }
 
         let typeSpeed = 100;
 
@@ -286,28 +333,6 @@ function updateActiveNavLink() {
     });
 }
 
-// ===== Theme Toggle =====
-function initTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-}
-
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
-}
-
-function updateThemeIcon(theme) {
-    const icon = themeToggle.querySelector('i');
-    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-}
-
-themeToggle.addEventListener('click', toggleTheme);
 
 // ===== Back to Top Button =====
 function handleBackToTop() {
@@ -377,18 +402,26 @@ contactForm.addEventListener('submit', (e) => {
         return;
     }
     
-    // Simulate form submission
+    // EmailJS form submission
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     submitBtn.disabled = true;
     
-    setTimeout(() => {
-        showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-        contactForm.reset();
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-    }, 2000);
+    // Note: User must replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID with actual IDs from their EmailJS account
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', contactForm)
+        .then(() => {
+            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+            contactForm.reset();
+        })
+        .catch((error) => {
+            console.error('EmailJS Error:', error);
+            showNotification('Failed to send message. Please try again later.', 'error');
+        })
+        .finally(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        });
 });
 
 // ===== Notification System =====
@@ -560,7 +593,6 @@ function initCursorEffect() {
 
 // ===== Initialize Everything =====
 function init() {
-    initTheme();
     initScrollAnimations();
     
     // Load GitHub projects
@@ -577,12 +609,19 @@ function init() {
 }
 
 // ===== Event Listeners =====
+let isScrolling = false;
 window.addEventListener('scroll', () => {
-    handleNavScroll();
-    updateActiveNavLink();
-    handleBackToTop();
-    handleScrollAnimations();
-    handleParallax();
+    if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+            handleNavScroll();
+            updateActiveNavLink();
+            handleBackToTop();
+            handleScrollAnimations();
+            handleParallax();
+            isScrolling = false;
+        });
+        isScrolling = true;
+    }
 });
 
 window.addEventListener('load', init);
